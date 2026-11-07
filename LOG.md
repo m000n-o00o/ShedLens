@@ -24,6 +24,7 @@
 - **Observations:**
   1. Patterns vary a lot; in some, the stains are so small they almost disappear after resizing.
   2. Some images have text and scale marks on the edges. These need to be checked or removed before training.
+  3. Some scans show a long dark streak (e.g. H-a0-D200-1 (93), top of the image) that looks like blood running down, not spatter. Open question: does it appear in only one class? If so, the model could learn the streak instead of the spatter pattern.
 - **Next:**
   - Check how many images have text or scale marks on the edges, and decide how to handle them.
   - Download the impact beating spatter dataset (61 patterns).

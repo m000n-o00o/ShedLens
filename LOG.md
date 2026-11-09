@@ -28,3 +28,25 @@
 - **Next:**
   - Check how many images have text or scale marks on the edges, and decide how to handle them.
   - Download the impact beating spatter dataset (61 patterns).
+
+
+
+## 2026-11-09
+- **Goal:** Download the impact beating dataset and unzip it in Colab.
+- **Done when:** The impact folder count prints 61.
+- **What happened:**
+  - Source: Attinger et al. (2018), Data in Brief, impact beating spatters (doi 10.1016/j.dib.2018.02.070).
+  - Downloaded mmc2 (221.5 MB) and mmc3 (256 MB) one by one; sizes matched the page.
+  - Stored in Drive as ShedLens/data/impact/impact_part1-2.zip.
+  - Unzipped to /content/data/impact: 61 pattern folders.
+  - Split paths into gunshot_dir and impact_dir in the setup cell.
+  - A hidden NameError (img_dir) showed up after renaming paths.
+  - Fixed the random sample with sorted() before random.sample. New gunshot sample: Hf72, H-a0-D300-1, Hr35, Hr31m, Hr28m, Hf77, H-a60-D150-3, H-a60-D150-1, Hr70, Hr27.
+- **Learned:**
+  - A notebook keeps old variables in memory, so a cell can work only because of a variable I already deleted from the code (img_dir). Restart session and run all is the real test.
+  - random.seed fixes which positions get picked, not the list itself. rglob can return files in a different order after unzipping again, so I sort the list before random.sample. Running a cell twice in the same session doesn't prove the sample is fixed; a restart does.
+- **Observations:**
+  - H-a0-D300-1 shows grid lines and marks on the left edge (more support for observation 2).
+- **Next:**
+  - Measure the largest impact image; raise the pixel limit if needed.
+  - Show 10 impact images and compare them with the gunshot grid.

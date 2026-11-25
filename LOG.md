@@ -50,27 +50,28 @@
 - **Next:**
   - Measure the largest impact image; raise the pixel limit if needed.
   - Show 10 impact images and compare them with the gunshot grid.
- 
-2026-11-25
 
-* Goal: Measure the largest impact image and compare 10 impact images with the gunshot grid.
-* Done when: A 2x5 impact grid prints with folder names, and I write two lines on the difference between the classes.
-* What happened:
-   * Checked file types in impact_dir: {'.txt', '.jpg'}. The current exts already covers it.
-   * Largest impact image: 888,360,000 pixels (~0.89B). Under the 1.3B limit, so no change needed.
-   * Cleaned the copied comments in the impact measurement cell.
-   * Impact grid sample (seed 42): HP_34, C5, C10, HP_54, HP_13, HP_11, HP_10, C6, HP_63, C4.
-* Learned:
-   * Set comprehension follows the same order as the loop: {what to add for item in where to look if condition}. A set keeps unique values only, so it answers "what kinds exist", not "how many".
-   * PIL's default limit raises an error above ~179M pixels, so the impact scans also need the raised limit.
-   * Running the impact grid overwrote image_paths and sample; the gunshot versions are gone until I rerun that cell.
-* Observations:
-   * Impact scans are clean (white paper, no labels or rulers), while many gunshot scans have text, scales and lines on the edges.
-   * The two classes come from different papers and setups, so a model could learn these source differences instead of the spatter itself (leakage risk).
-   * Impact stains almost disappear at thumbnail size (more support for observation 1).
-   * Impact folders use two prefixes: HP_ and C. Meaning not checked yet.
-   * HP_13 shows a faint vertical line in the middle; check at full resolution (crop, not thumbnail) before deciding what it is.
-* Next:
-   * Turn the grid cell into a function that takes a folder and a title, and use it for both classes.
-   * Find out what HP_ and C mean (txt files or the 2018 paper).
-   * Crop HP_13 at full resolution and check the vertical line.
+
+ 
+## 2026-11-25
+- **Goal:** Measure the largest impact image and compare 10 impact images with the gunshot grid.
+- **Done when:** A 2x5 impact grid prints with folder names, and I write two lines on the difference between the classes.
+- **What happened:**
+  - Checked file types in impact_dir: {'.txt', '.jpg'}. The current exts already covers it.
+  - Largest impact image: 888,360,000 pixels (~0.89B). Under the 1.3B limit, so no change needed.
+  - Cleaned the copied comments in the impact measurement cell.
+  - Impact grid sample (seed 42): HP_34, C5, C10, HP_54, HP_13, HP_11, HP_10, C6, HP_63, C4.
+- **Learned:**
+  - Set comprehension follows the same order as the loop: {what to add for item in where to look if condition}. A set keeps unique values only, so it answers "what kinds exist", not "how many".
+  - PIL's default limit raises an error above ~179M pixels, so the impact scans also need the raised limit.
+  - Running the impact grid overwrote image_paths and sample; the gunshot versions are gone until I rerun that cell.
+- **Observations:**
+  - Impact scans are clean (white paper, no labels or rulers), while many gunshot scans have text, scales and lines on the edges.
+  - The two classes come from different papers and setups, so a model could learn these source differences instead of the spatter itself (leakage risk).
+  - Impact stains almost disappear at thumbnail size (more support for observation 1).
+  - Impact folders use two prefixes: HP_ and C. Meaning not checked yet.
+  - HP_13 shows a faint vertical line in the middle; check at full resolution (crop, not thumbnail) before deciding what it is.
+- **Next:**
+  - Turn the grid cell into a function that takes a folder and a title, and use it for both classes.
+  - Find out what HP_ and C mean (txt files or the 2018 paper).
+  - Crop HP_13 at full resolution and check the vertical line.

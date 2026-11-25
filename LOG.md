@@ -75,3 +75,4 @@
   - Turn the grid cell into a function that takes a folder and a title, and use it for both classes.
   - Find out what HP_ and C mean (txt files or the 2018 paper).
   - Crop HP_13 at full resolution and check the vertical line.
+  - Watch fast.ai Lesson 1 before deciding on cleaning and the model.
